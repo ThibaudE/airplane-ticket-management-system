@@ -1,0 +1,89 @@
+{
+  "customer.passenger_profile": {
+    "transaction": true,
+    "partition-key": [
+      "profile_id"
+    ],
+    "columns": {
+      "profile_id": "INT",
+      "name": "TEXT",
+      "address": "TEXT",
+      "tel_no": "TEXT",
+      "email": "TEXT",
+      "password": "TEXT"
+    }
+  },
+  "customer.credit_card_details": {
+    "transaction": true,
+    "partition-key": [
+      "profile_id"
+    ],
+    "columns": {
+      "profile_id": "INT",
+      "card_number": "INT",
+      "card_type": "TEXT",
+      "expiration_date": "TEXT",
+      "credit_limit": "INT",
+      "spending": "INT"
+    }
+  },
+  "customer.flight_details": {
+    "transaction": true,
+    "partition-key": [
+      "flight_id"
+    ],
+    "columns": {
+      "flight_id": "INT",
+      "flight_departure_date": "TEXT",
+      "flight_arrival_date": "TEXT",
+      "airline_id": "INT",
+      "airline_name": "TEXT",
+      "trip": "TEXT",
+      "duration": "TEXT",
+      "total_seats": "INT",
+      "available_seats": "INT"
+    }
+  },
+  "order.orders": {
+    "transaction": true,
+    "partition-key": [
+      "profile_id"
+    ],
+    "clustering-key": [
+      "timestamp"
+    ],
+    "secondary-index": [
+      "order_id"
+    ],
+    "columns": {
+      "order_id": "TEXT",
+      "profile_id": "INT",
+      "timestamp": "BIGINT"
+    }
+  },
+  "order.statements": {
+    "transaction": true,
+    "partition-key": [
+      "order_id"
+    ],
+    "clustering-key": [
+      "ticket_id"
+    ],
+    "columns": {
+      "order_id": "TEXT",
+      "ticket_id": "INT",
+      "count": "INT"
+    }
+  },
+  "order.ticket_info": {
+    "transaction": true,
+    "partition-key": [
+      "ticket_id"
+    ],
+    "columns": {
+      "ticket_id": "INT",
+      "flight_id": "INT",
+      "price": "INT"
+    }
+  }
+}
