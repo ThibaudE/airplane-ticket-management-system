@@ -1,0 +1,17 @@
+Start cassandra
+psql -U fire -h localhost postgres
+java -jar scalardb-schema-loader-3.5.2.jar --config database.properties --schema-file schema.json --coordinator
+./gradlew run --args="LoadInitialData"
+./gradlew run --args="GetPassengerInfo 1"
+./gradlew run --args="GetCreditCardInfo 1"
+./gradlew run --args="GetTicketInfo 1"
+./gradlew run --args="GetTicketInfo 8"
+./gradlew run --args="GetFlightInfo 3"
+./gradlew run --args="PlaceOrder 1 2:1"
+./gradlew run --args="PlaceOrder 1 3:10"
+./gradlew run --args="GetOrdersByProfileId 1"
+./gradlew run --args="PutPassengerInfo NewPassenger address 9049-498-1459 test@keio.jp yjetzj(rytj 4989948 MasterCard 07/26 80000 80000"
+./gradlew run --args="Repayment <profile_id> 70000"
+./gradlew run --args="GetCreditCardInfo <profile_id>"
+./gradlew run --args="PlaceOrder <profile_id> 1:3"
+./gradlew run --args="ExchangeTickets 1 2 <profile_id> 1"
