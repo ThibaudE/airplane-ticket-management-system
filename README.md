@@ -23,7 +23,7 @@ This command starts Cassandra and MySQL, and loads the schema.
 
 ### Without docker
 You first need to start your MySQL and Cassandra database manually.
-You can then load the schema of the data with the following command:
+You can then load the schema of the data - using the schema loader 3.5.2 that you can find [here](https://github.com/scalar-labs/scalardb/releases) - with the following command:
 ```
 java -jar scalardb-schema-loader-3.5.2.jar --config database.properties --schema-file schema.json --coordinator
 ```
