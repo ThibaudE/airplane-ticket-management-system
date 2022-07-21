@@ -222,8 +222,8 @@ public class Sample implements AutoCloseable {
       transaction = manager.start();
 
       Boolean exist = true;
-      int profileId = 0;
-      while (!exist) {
+      int profileId = 1;
+      while (exist) {
         profileId = (int) Math.floor(Math.random() * 1000);
 
         // Check if the id is already in the database
@@ -232,7 +232,7 @@ public class Sample implements AutoCloseable {
                 .forNamespace("customer")
                 .forTable("passenger_profile"));
 
-        if (passenger.isPresent()) {
+        if (!passenger.isPresent()) {
           exist = false;
         }
 
@@ -325,8 +325,8 @@ public class Sample implements AutoCloseable {
       transaction = manager.start();
 
       Boolean exist = true;
-      int ticketId = 0;
-      while (!exist) {
+      int ticketId = 1;
+      while (exist) {
         ticketId = (int) Math.floor(Math.random() * 1000);
 
         // Check if the id is already in the database
@@ -335,7 +335,7 @@ public class Sample implements AutoCloseable {
                 .forNamespace("order")
                 .forTable("ticket_info"));
 
-        if (ticket.isPresent()) {
+        if (!ticket.isPresent()) {
           exist = false;
         }
       }
@@ -426,8 +426,8 @@ public class Sample implements AutoCloseable {
       transaction = manager.start();
 
       Boolean exist = true;
-      int flightId = 0;
-      while (!exist) {
+      int flightId = 1;
+      while (exist) {
         flightId = (int) Math.floor(Math.random() * 1000);
 
         // Check if the id is already in the database
@@ -436,7 +436,7 @@ public class Sample implements AutoCloseable {
                 .forNamespace("customer")
                 .forTable("flight_details"));
 
-        if (flight.isPresent()) {
+        if (!flight.isPresent()) {
           exist = false;
         }
 
